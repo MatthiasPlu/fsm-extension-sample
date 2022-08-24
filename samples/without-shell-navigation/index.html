@@ -118,12 +118,24 @@
         SHELL_SDK.emit(SHELL_EVENTS.Version1.GET_STORAGE_ITEM, PAYLOAD);
 
         // Register listener for Shell language response
-        SHELL_SDK.on(SHELL_EVENTS.Version1.GET_STORAGE_ITEM, (locale) => {
-          if (locale !== undefined) {
-            const LOCALE_CONFIG = getLanguageByLocale(locale);
-            const LANG_CODE = LOCALE_CONFIG.language ? LOCALE_CONFIG.language : LOCALE_CONFIG.code;
-            translate(LANG_CODE);
-          }
+shellSdk.on(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, (event) => {
+
+          const {
+            // extract required context from event content
+            cloudHost,
+            account,
+            company,
+            user,
+            // extract authentication data from event content
+            auth
+          } = JSON.parse(event);
+
+          // Access_token has a short life stpan and needs to be refreshed before expiring
+          // Each extension need to implement its own strategy to fresh it.
+          initializeRefreshTokenStrategy(shellSdk, auth);
+
+          // Add a listenner expecting activityID
+          alert(exception.message || 'An unknown error occured');
         });
       }
     </script>
