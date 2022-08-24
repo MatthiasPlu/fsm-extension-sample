@@ -132,7 +132,7 @@ shellSdk.on(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, (event) => {
 
           // Access_token has a short life stpan and needs to be refreshed before expiring
           // Each extension need to implement its own strategy to fresh it.
-          initializeRefreshTokenStrategy(shellSdk, auth);
+     
 
           // Add a listenner expecting activityID
           alert(exception.message || 'An unknown error occured');
