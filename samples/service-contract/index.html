@@ -52,7 +52,7 @@
           // Add a listenner expecting activityID
   shellSdk.onViewState('activityID', async activityID => {
 
-
+             updateUI('test');
             updateUI(shellSdk ? `${JSON.stringify(shellSdk)}` : `NO CONTRACT`);
           });
         });
