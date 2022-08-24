@@ -118,7 +118,7 @@
         SHELL_SDK.emit(SHELL_EVENTS.Version1.GET_STORAGE_ITEM, PAYLOAD);
 
         // Register listener for Shell language response
-shellSdk.on(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, (event) => {
+SHELL_SDK.on(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, (event) => {
 
           const {
             // extract required context from event content
