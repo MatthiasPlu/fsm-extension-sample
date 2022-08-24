@@ -116,27 +116,12 @@
         // Request current Shell language
         const PAYLOAD = 'Cockpit_SelectedLocale';
         SHELL_SDK.emit(SHELL_EVENTS.Version1.GET_STORAGE_ITEM, PAYLOAD);
+        console.log(SHELL_SDK.emit(SHELL_EVENTS.Version1.REQUIRE_AUTHENTICATION, {
+        "response_type": "token"
+      });
 
         // Register listener for Shell language response
-SHELL_SDK.on(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, (event) => {
 
-          const {
-            // extract required context from event content
-            cloudHost,
-            account,
-            company,
-            user,
-            // extract authentication data from event content
-            auth
-          } = JSON.parse(event);
-
-          // Access_token has a short life stpan and needs to be refreshed before expiring
-          // Each extension need to implement its own strategy to fresh it.
-     
-
-          // Add a listenner expecting activityID
-          console.log(company);
-        });
       }
     </script>
   </body>
