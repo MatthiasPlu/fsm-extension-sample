@@ -53,7 +53,7 @@
   shellSdk.onViewState('activityID', async activityID => {
 
 
-            updateUI(activityID ? `${activityID}` : `NO CONTRACT`);
+            updateUI(shellSdk ? `${shellSdk}` : `NO CONTRACT`);
           });
         });
       }
